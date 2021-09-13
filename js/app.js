@@ -31,5 +31,24 @@ new Vue({
             let attackPoint = Math.ceil(Math.random() * 15);
             this.playerHealth -= attackPoint;
         }
+    },
+    watch: {
+        playerHealth: function(value) {
+            if(value <= 0) {
+                this.playerHealth = 0;
+
+                alert('You killed by monster!');
+                
+            } else if(value >= 100) {
+                this.playerHealth = 100
+            }
+        },
+        monsterHealth: function(value) {
+            if(value <= 0) {
+                this.monsterHealth = 0;
+
+                alert('You killed the monster!!!! Congratulations!!!!');
+            }
+        }
     }
 })
