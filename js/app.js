@@ -43,6 +43,9 @@ new Vue({
         addToLog: function(log) {
             this.logs.push(log);
         },
+        clearLogs: function(arr) {
+            arr.splice(0, arr.length);
+        },
     },
     watch: {
         playerHealth: function(value) {
@@ -52,10 +55,14 @@ new Vue({
                 if(confirm('You lost the game. Wanna retry?')) {
                     this.playerHealth = 100;
                     this.monsterHealth = 100;
+                    this.clearLogs(this.logs);
+                    
                 } else {
                     this.playerHealth = 100;
                     this.monsterHealth = 100;
                     this.gameIsOn = false;
+                    this.clearLogs(this.logs);
+                    
                 }
 
             } else if(value >= 100) {
@@ -69,10 +76,14 @@ new Vue({
                 if(confirm('You won the game. Wanna retry?')) {
                     this.playerHealth = 100;
                     this.monsterHealth = 100;
+                    this.clearLogs(this.logs);
+                    
                 } else {
                     this.playerHealth = 100;
                     this.monsterHealth = 100;
                     this.gameIsOn = false;
+                    this.clearLogs(this.logs);
+
                 }
             }
         }
