@@ -59,7 +59,10 @@
         <section class="row log" v-if="gameIsOn">
             <div class="small-12 columns">
                 <ul>
-                    <li v-for="log in logs">{{ log }}</li>
+                    <li
+                     v-bind:class="{'player-turn': log.turn == 'Player', 'monster-turn': log.turn == 'Monster'}"
+                     v-for="log in logs"
+                     >{{ log.text }}</li>
                 </ul>
             </div>
         </section>
