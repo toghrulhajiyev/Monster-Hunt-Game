@@ -37,8 +37,11 @@ new Vue({
             if(value <= 0) {
                 this.playerHealth = 0;
 
-                alert('You killed by monster!');
-                
+                if(confirm('You lost the game. Wanna retry?')) {
+                    this.playerHealth = 100;
+                    this.monsterHealth = 100;
+                }
+
             } else if(value >= 100) {
                 this.playerHealth = 100
             }
@@ -47,7 +50,10 @@ new Vue({
             if(value <= 0) {
                 this.monsterHealth = 0;
 
-                alert('You killed the monster!!!! Congratulations!!!!');
+                if(confirm('You won the game. Wanna retry?')) {
+                    this.playerHealth = 100;
+                    this.monsterHealth = 100;
+                }
             }
         }
     }
