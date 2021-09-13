@@ -59,11 +59,7 @@
         <section class="row log" v-if="gameIsOn">
             <div class="small-12 columns">
                 <ul>
-                    <li>
-
-                    </li>
-                
-                   
+                    <li v-for="log in logs">{{ log }}</li>
                 </ul>
             </div>
         </section>
