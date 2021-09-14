@@ -21,7 +21,7 @@
 
                 <div class="healthbar">
                     <div class="healthbar text-center"
-                     v-bind:style="{width: playerHealth + '%'}"
+                     v-bind:style="userProgress"
                      style="background-color: green; margin: 0; color: white;">
                         {{ playerHealth }}%
                     </div>
@@ -33,7 +33,7 @@
                 <h1 class="text-center">Monster</h1>
                 <div class="healthbar">
                     <div class="healthbar text-center"
-                     v-bind:style="{width: monsterHealth + '%'}"
+                     v-bind:style="monsterProgress"
                      style="background-color: green; margin: 0; color: white;">
                         {{ monsterHealth }}%
                     </div>
@@ -49,8 +49,8 @@
 
         <section class="row controls" v-if="gameIsOn">
             <div class="small-12 columns">
-                <button id="attack" v-on:click="attack">Attack</button>
-                <button id="special-attack" v-on:click="specialAttack">Special Attack</button>
+                <button id="attack" v-on:click="playerAttack(points.player_attack, logTexts.atk_text)">Attack</button>
+                <button id="special-attack" v-on:click="playerAttack(points.player_special_attack, logTexts.special_atk)">Special Attack</button>
                 <button id="heal" v-on:click="healUp">First Aid</button>
                 <button id="give-up" v-on:click="giveUp">Give Up</button>
             </div>
